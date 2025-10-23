@@ -19,7 +19,7 @@ public class Reviews {
 	
 	public Reviews()
 	{
-		reviews = loadReviews("100.txt");  
+		reviews = loadReviews("20.txt");
 	}
 	
 	/**
@@ -41,7 +41,13 @@ public class Reviews {
 			while ((line = in.readLine()) != null)
 			{
 				String toks[]=line.split("\t"); // Format: Title\tReview\tScore
-				data.add(toks[1]); // Just add the review
+				if (toks.length > 1){
+					data.add(toks[1]); // Just add the review
+				}
+				else {
+					data.add(toks[0]);
+				}
+
 			}
 			in.close();
 		}
